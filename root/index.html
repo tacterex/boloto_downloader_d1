@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: black;
+            color: whitesmoke;
+            font-family: 'Fredoka', sans-serif;
+        }
+        h1, h2{
+            text-align: center;
+        }
+        button{
+            width: 100%;
+            height: 40px;
+            background-color: #333;
+            color: whitesmoke;
+            border-radius: 5px;
+            font-family: 'Fredoka', sans-serif;
+            margin-top: 2px;
+        }
+        section{
+            background-color: #111;
+            border: 1px gray solid;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 3px;
+        }
+        a{
+            color: whitesmoke;
+        }
+    </style>
+    <title>Download boloto</title>
+</head>
+<body>
+    <h1>Welcome to Boloto downloader</h1>
+    <section>
+        <h2 id="header"></h2>
+        <button onclick="window.open('apk/boloto.apk', '_blank')">Download apk</button>
+        <button onclick="window.open('exe/boloto.rar', '_blank')">Download exe</button>
+    </section>
+    <section>
+        <h2>In case of questions: <i>subtacter@gmail.com</i>.</h2>
+    </section>
+    <p><sub><i>created by Boloto Studio</i></sub></p>
+
+    <script>
+        const VESRSION = "1.0.0.0"
+        document.getElementById("header").innerHTML = "Download version " + VESRSION
+    </script>
+</body>
+</html>
