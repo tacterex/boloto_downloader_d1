@@ -35,24 +35,48 @@
         a{
             color: whitesmoke;
         }
+        p{
+            text-align: right;
+        }
     </style>
     <title>Download boloto</title>
 </head>
 <body>
     <h1>Welcome to Boloto downloader</h1>
-    <section>
-        <h2 id="header"></h2>
-        <button onclick="window.open('https://drive.google.com/file/d/1vECvucSnlL8FV53OgatnKPi_Y-tC_AyX/view?usp=sharing', '_blank')">Download apk</button>
-        <button onclick="window.open('https://drive.google.com/file/d/1DeOXMxjib5E_h_hPAdaApSNmEzPBceVj/view?usp=sharing', '_blank')">Download exe</button>
-    </section>
+    
     <section>
         <h2>In case of questions: <i>subtacter@gmail.com</i>.</h2>
+        <p><sub><i>created by Boloto Studio</i></sub></p>
     </section>
-    <p><sub><i>created by Boloto Studio</i></sub></p>
 
     <script>
-        const VESRSION = "1.0.0.0"
-        document.getElementById("header").innerHTML = "Download version " + VESRSION
+        const VESRSION = ["1.0.0.0", "1.0.1.0"]
+        const LINKS = [
+            ["https://drive.google.com/file/d/1vECvucSnlL8FV53OgatnKPi_Y-tC_AyX/view?usp=sharing",
+             "https://drive.google.com/file/d/1DeOXMxjib5E_h_hPAdaApSNmEzPBceVj/view?usp=sharing"],
+            ["",
+             ""]
+        ]
+        if(VESRSION.length == LINKS.length){
+            console.log("Building!")
+            for(let i = 0; i < VESRSION.length; i++){
+                let section = document.createElement("section")
+                let h2 = document.createElement("h2")
+                h2.innerHTML = "Download vesrion " + VESRSION[i]
+                let apk = document.createElement("button")
+                apk.innerHTML = "Download apk"
+                apk.value = i
+                apk.onclick = window.open(LINKS[apk.value][0], '_blank')
+                let exe = document.createElement("button")
+                exe.innerHTML = "Download exe"
+                exe.value = i
+                exe.onclick = window.open(LINKS[exe.value][1], '_blank')
+                section.appendChild(h2)
+                section.appendChild(apk)
+                section.appendChild(exe)
+                document.querySelector("body").appendChild(section)
+            }
+        }
     </script>
 </body>
 </html>
