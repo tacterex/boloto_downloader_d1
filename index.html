@@ -66,11 +66,11 @@
                 let apk = document.createElement("button")
                 apk.innerHTML = "Download apk"
                 apk.value = i
-                apk.onclick = window.open(LINKS[apk.value][0], '_blank')
+                apk.addEventListener("click", function(){window.open(LINKS[apk.value][0])})
                 let exe = document.createElement("button")
                 exe.innerHTML = "Download exe"
                 exe.value = i
-                exe.onclick = window.open(LINKS[exe.value][1], '_blank')
+                exe.addEventListener("click", function(){window.open(LINKS[exe.value][1], '_blank')})
                 section.appendChild(h2)
                 section.appendChild(apk)
                 section.appendChild(exe)
