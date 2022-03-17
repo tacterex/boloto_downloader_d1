@@ -48,16 +48,14 @@
         <h2>In case of questions: <i>subtacter@gmail.com</i>.</h2>
         <p><sub><i>created by Boloto Studio</i></sub></p>
     </section>
-    
-    
 
     <script>
         const VESRSION = ["1.0.0.0", "1.0.1.0"]
         const LINKS = [
             ["https://drive.google.com/file/d/1vECvucSnlL8FV53OgatnKPi_Y-tC_AyX/view?usp=sharing",
              "https://drive.google.com/file/d/1DeOXMxjib5E_h_hPAdaApSNmEzPBceVj/view?usp=sharing"],
-            ["https://drive.google.com/file/d/1tNOK6mYj0crXGGk9LQ2Rkaj7VUrmmTu6/view?usp=sharing",
-             "https://nofilebol.netlify.app/"]
+            ["",
+             ""]
         ]
         if(VESRSION.length == LINKS.length){
             console.log("Building!")
@@ -67,18 +65,18 @@
                 h2.innerHTML = "Download vesrion " + VESRSION[i]
                 let apk = document.createElement("button")
                 apk.innerHTML = "Download apk"
-                apk.value = i
-                apk.addEventListener("click", function(){window.open(LINKS[apk.value][0])})
+                apk.addEventListener("click", function(){window.open(LINKS[i][0])})
                 let exe = document.createElement("button")
                 exe.innerHTML = "Download exe"
-                exe.value = i
-                exe.addEventListener("click", function(){window.open(LINKS[exe.value][1], '_blank')})
+                exe.addEventListener("click", function(){window.open(LINKS[i][1], '_blank')})
                 section.appendChild(h2)
                 section.appendChild(apk)
                 section.appendChild(exe)
                 document.querySelector("body").appendChild(section)
-               
             }
+        }
+        for(let i = 0; i < document.querySelectorAll("button").length; i++){
+            console.log(document.querySelectorAll("button")[i].value)
         }
     </script>
 </body>
