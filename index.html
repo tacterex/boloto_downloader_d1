@@ -41,8 +41,6 @@
     </style>
     <title>Download boloto</title>
 </head>
-    
-    
 <body>
     <h1>Welcome to Boloto downloader</h1>
     
@@ -52,13 +50,16 @@
     </section>
 
     <script>
-        const VESRSION = ["1.0.0.0", "1.0.1.0"]
+        const VESRSION = ["1.0.0.0", "1.0.1.0", "1.0.1.1"]
         const LINKS = [
             ["https://drive.google.com/file/d/1vECvucSnlL8FV53OgatnKPi_Y-tC_AyX/view?usp=sharing",
              "https://drive.google.com/file/d/1DeOXMxjib5E_h_hPAdaApSNmEzPBceVj/view?usp=sharing"],
             ["https://drive.google.com/file/d/1tNOK6mYj0crXGGk9LQ2Rkaj7VUrmmTu6/view?usp=sharing",
+             "https://nofilebol.netlify.app/"],
+             ["https://drive.google.com/file/d/1kC41S9Zz0rRhSX_kAN5m9rlZzKpMVdix/view?usp=sharing",
              "https://nofilebol.netlify.app/"]
         ]
+        const ERRORS = ["", "1.0.1.0"]
         if(VESRSION.length == LINKS.length){
             console.log("Building!")
             for(let i = 0; i < VESRSION.length; i++){
@@ -72,13 +73,19 @@
                 exe.innerHTML = "Download exe"
                 exe.addEventListener("click", function(){window.open(LINKS[i][1], '_blank')})
                 section.appendChild(h2)
+                if(VESRSION[i] == ERRORS[i]){
+                    h2.style.color = "red"
+                    let sub = document.createElement("p")
+                    sub.innerHTML = "<sub><i>Contain a lot of errors/bugs</i></sub>"
+                    sub.style.color = "red"
+                    sub.style.textAlign = "center"
+                    section.appendChild(sub)
+                }
                 section.appendChild(apk)
                 section.appendChild(exe)
                 document.querySelector("body").appendChild(section)
             }
         }
     </script>
-    
-    
 </body>
 </html>
