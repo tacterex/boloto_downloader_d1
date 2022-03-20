@@ -8,6 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
     <style>
+        ::-webkit-scrollbar{
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            border-radius: 5px;
+            background-color: #353535;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: #454545;
+        }
         body{
             background-color: black;
             color: whitesmoke;
@@ -55,34 +65,45 @@
     </section>
 
     <script>
-        const VESRSION = ["1.0.0.0", "1.0.1.0", "1.0.1.1"]
+        const VESRSION = ["1.0.0.0", "1.0.1.0", "1.0.1.1", "1.0.3.0"]
         const LINKS = [
             ["https://drive.google.com/file/d/1vECvucSnlL8FV53OgatnKPi_Y-tC_AyX/view?usp=sharing",
              "https://drive.google.com/file/d/1DeOXMxjib5E_h_hPAdaApSNmEzPBceVj/view?usp=sharing"],
             ["https://drive.google.com/file/d/1tNOK6mYj0crXGGk9LQ2Rkaj7VUrmmTu6/view?usp=sharing",
              "https://nofilebol.netlify.app/"],
              ["https://drive.google.com/file/d/1-tN1TiUbvPvYqUhqqGGAe42uyjodI3sl/view?usp=sharing",
+             "https://nofilebol.netlify.app/"],
+             ["https://drive.google.com/file/d/145Oe_h6caWGBHzL08iA0R2TbUw7zX75-/view?usp=sharing",
              "https://nofilebol.netlify.app/"]
         ]
-        const ERRORS = ["", "1.0.1.0"]
-        if(VESRSION.length == LINKS.length){
+        const ERRORS = ["none", "Error", "none", "beta"]
+        const len = VESRSION.length
+        if(len == LINKS.length){
             console.log("Building!")
             for(let i = 0; i < VESRSION.length; i++){
                 let section = document.createElement("section")
                 let h2 = document.createElement("h2")
-                h2.innerHTML = "Download vesrion " + VESRSION[i]
+                h2.innerHTML = "Download vesrion " + VESRSION[len-1-i]
                 let apk = document.createElement("button")
                 apk.innerHTML = "Download apk"
-                apk.addEventListener("click", function(){window.open(LINKS[i][0])})
+                apk.addEventListener("click", function(){window.open(LINKS[len-1-i][0])})
                 let exe = document.createElement("button")
                 exe.innerHTML = "Download exe"
-                exe.addEventListener("click", function(){window.open(LINKS[i][1], '_blank')})
+                exe.addEventListener("click", function(){window.open(LINKS[len-1-i][1], '_blank')})
                 section.appendChild(h2)
-                if(VESRSION[i] == ERRORS[i]){
+                if(ERRORS[len-1-i] == "Error"){
                     h2.style.color = "red"
                     let sub = document.createElement("p")
                     sub.innerHTML = "<sub><i>Contain a lot of errors/bugs</i></sub>"
                     sub.style.color = "red"
+                    sub.style.textAlign = "center"
+                    section.appendChild(sub)
+                }
+                if(ERRORS[len-1-i] == "beta"){
+                    h2.style.color = "gold"
+                    let sub = document.createElement("p")
+                    sub.innerHTML = "<sub><i>This is beta version. Can be not finished/unstable</i></sub>"
+                    sub.style.color = "gold"
                     sub.style.textAlign = "center"
                     section.appendChild(sub)
                 }
